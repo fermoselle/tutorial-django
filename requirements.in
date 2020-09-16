@@ -1,0 +1,5 @@
+# requirements.in
+psycopg2
+django
+gunicorn
+django-heroku
