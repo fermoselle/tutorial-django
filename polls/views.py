@@ -3,6 +3,9 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
+from django.views.generic.base import RedirectView
+
+from articles.models import Article
 
 from .models import Choice, Question
 
@@ -60,3 +63,13 @@ def vote(request, question_id):
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
 
+class ArticleCounterRedirectView(RedirectView):
+
+    permanent = False
+    query_string = True
+    pattern_name = 'article-detail'
+
+    def get_redirect_url(self, *args, **kwargs):
+        article = get_object_or_404(Article, pk=kwargs['pk'])
+        article.update_counter()
+        return super().get_redirect_url(*args, **kwargs)
