@@ -28,7 +28,7 @@ SECRET_KEY = "rx-p87yj&zdwgrad#uhu@r9!@nlih135x)8lurexii@q!d5!o@"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://desolate-garden-07457.herokuapp.com/"]
+ALLOWED_HOSTS = ["127.0.0.1", "https://desolate-garden-07457.herokuapp.com/"]
 
 
 # Application definition
@@ -57,15 +57,15 @@ ROOT_URLCONF = "tutorial.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / "templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
@@ -126,5 +126,3 @@ STATIC_URL = "/static/"
 STATIC_ROOT = "polls/static"
 
 django_heroku.settings(locals())
-
-
